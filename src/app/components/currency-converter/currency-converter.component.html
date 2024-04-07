@@ -1,0 +1,76 @@
+<!-- <div>
+  <h2>Currency Converter</h2>
+  <label>
+    Amount:
+   
+  </label>
+  <label>
+    From Currency:
+   
+  </label>
+  <label>
+    To Currency:
+    
+  </label>
+  <button (click)="convertCurrency()">Convert</button>
+  <p *ngIf="exchangeRate !== 0">Result: {{ amount }} {{ fromCurrency }} = {{ amount * exchangeRate }} {{ toCurrency }}
+  </p>
+</div> -->
+
+<div class="container">
+  <div class="border-right border-sizing">
+    <div class="row">
+      <div class="border-sizing">
+        <mat-form-field class="example-full-width">
+          <mat-label></mat-label>
+          <input matInput placeholder="123" value="0" [(ngModel)]="fromAmount" (input)="convertCurrency()">
+        </mat-form-field>
+      </div>
+      <mat-form-field>
+        <mat-label>Select a currency</mat-label>
+        <mat-select [(value)]="selectedFrom" (selectionChange)="convertCurrency()">
+          <mat-option value={{val.currencyCode}} *ngFor="let val of currencyTypesFrom">{{val.currencyCode}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <div class="border-sizing">
+        <mat-form-field class="example-full-width">
+          <mat-label></mat-label>
+          <input matInput placeholder="123" value="" [(ngModel)]="toAmount">
+        </mat-form-field>
+      </div>
+      <mat-form-field>
+        <mat-label>Select a currency</mat-label>
+        <mat-select [(value)]="selectedTo" (selectionChange)="convertCurrency()">
+          <mat-option>None</mat-option>
+          <mat-option value={{val.currencyCode}} *ngFor="let val of currencyTypes">{{val.currencyCode}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="charge">
+    <div style="color: white;">
+      {{fromAmount}} {{selectedFrom}} = {{toAmount}} {{selectedTo}}
+    </div>
+  </div>
+
+  <div>
+    <div class="border-sizing">
+      <table mat-table >
+        <tr>
+          <td>
+            Past Two Days History
+          </td>
+        </tr>
+        <tr *ngFor="let item of historyList" >
+          <td> Date: {{ item.date }}</td>
+          <td> Value: {{ item.result }}</td>
+      </table>
+      <table>
+     
+      </table>
+    </div>
+  </div>
+
+</div>

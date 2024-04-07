@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    justify-content: center;
+    padding: 10rem;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 11px;
+
+}
+.border-right{
+    border-right: 1px solid;
+
+}
+.border-sizing{
+    padding-right: 1rem;
+    margin-right: 1rem;
+}
+.charge{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+}
